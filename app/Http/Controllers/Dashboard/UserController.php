@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\hash;
 
 
 class UserController extends Controller
@@ -61,7 +62,7 @@ class UserController extends Controller
 
         $user->name = $request->username;
         $user->email = $request->email;
-        $user->password = $request->password;
+        $user->password = hash::make($request->password);
 
         if ($request->hasFile('image')) {
             $image = uploadSingleFile($request->file('image'), 'uploads/users/profile/','png,jpeg,jpg');
