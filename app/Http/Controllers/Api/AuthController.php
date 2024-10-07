@@ -6,7 +6,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
+use JWTAuth;
+
+use Tymon\JWTAuth\Exceptions\JWTException;
 
 class AuthController extends Controller
 {
@@ -53,7 +57,9 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         $credentials = $request->only(['email', 'password']);
-        if (!$token = auth('api')->attempt($credentials)) {
+        if (!$token = JWTAuth::attempt($credentials)) {
+
+
             return response()->json([
                 'error' => 'Unauthorized'
             ], Response::HTTP_UNAUTHORIZED);
@@ -81,7 +87,9 @@ class AuthController extends Controller
 
     protected function respondWithToken($token)
     {
+        $user = JWTAuth::user();
         return response()->json([
+            'user' => $user,
             'access_token' => $token,
             'token_type' => 'bearer',
             'expires_in' => config('jwt.ttl') * 60
