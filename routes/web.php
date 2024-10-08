@@ -55,5 +55,8 @@ Route::middleware(['auth'])->group(function () {
 
 
     Route::get('/cordinates',[App\Http\Controllers\Dashboard\CordinatesController::class, 'index'])->name('cordinates');
+    Route::get('/get/cordinates',[App\Http\Controllers\Dashboard\CordinatesController::class, 'get_cordinates'])->name('get_cordinates');
+
+
 
 });

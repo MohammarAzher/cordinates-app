@@ -38,12 +38,18 @@ class LoginController extends Controller
             }else{
                 Auth::guard('web')->logout();
                 $msg = [
-                    'success' => 'You Do Not Have Access!',
-                    'redirect' => route('login')
+                    'error' => 'You Do Not Have Access!',
                 ];
             }
 
             return response()->json($msg);
+    }
+    else{
+        $msg = [
+            'error' => 'Credentials Invalid..!',
+
+        ];
+        return response()->json($msg);
     }
     }
 

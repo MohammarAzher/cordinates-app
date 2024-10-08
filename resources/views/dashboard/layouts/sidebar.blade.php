@@ -21,7 +21,7 @@
       </li>
       <li>
         <a href="{{route('cordinates')}}" class="waves-effect">
-          <i class="zmdi zmdi-view-dashboard"></i> <span>Cordinates</span>
+          <i class="zmdi zmdi-view-dashboard"></i> <span>Coordinates</span>
         </a>
       </li>
 

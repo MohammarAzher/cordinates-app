@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
   <meta name="description" content=""/>
   <meta name="author" content=""/>
-  <title>Admin Portal</title>
+  <title>Coordinates</title>
   <!--favicon-->
   <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon"/>
   <!-- Vector CSS -->
@@ -153,7 +153,7 @@
         $('.ajaxForm button[type="submit"]').prop('disabled', false);
     });
 </script>
-
+@yield('JScript')
 </body>
 </html>
 

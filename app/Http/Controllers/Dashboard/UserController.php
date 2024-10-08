@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\hash;
+use Illuminate\Support\Facades\Hash;
 
 
 class UserController extends Controller
@@ -78,6 +78,9 @@ class UserController extends Controller
         $user->save();
         return response()->json($msg);
     }
+
+
+
 
     public function destroy($id){
         user::find($id)->delete();
